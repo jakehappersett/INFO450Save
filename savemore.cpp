@@ -81,7 +81,7 @@ class savings: public account
 	{
 		if (day == 1)
 		{
-			bal = bal + (bal * (interest/100));
+			bal = bal * (interest/100);
 			checkaccount();
 		}
 	}
@@ -89,12 +89,14 @@ class savings: public account
 	{
 		account::deposit(d);
 		checkaccount();
+		return (0);
 
 	}
 	int withdraw(double w)
 	{
 		account::withdraw(w);
 		checkaccount(); 
+		return (0);
 	}
 };
 /*  CHEKCING SHIT */
@@ -122,12 +124,14 @@ class checking: public account
 	{
 		account::deposit(d);
 		checkaccount();
+		return (0);
 
 	}
 	int withdraw(double w)
 	{
 		account::withdraw(w);
 		checkaccount(); 
+		return (0);
 	}
 };
 
@@ -159,10 +163,19 @@ class cd: public account
 			bal = bal + (bal * (interest/100));
 		}
 	}
+	void penalty(int i)
+		//combinde this with withdraw
+	{
+		if (i == 1)
+		{
+			bal = (bal - (bal *(interest/100)));
+		}
+	}
 	int deposit(double d)
 	{
 		account::deposit(d);
 		checkterm(t);
+		return (0);
 
 	}
 	int withdraw(double w, int i)
@@ -174,6 +187,7 @@ class cd: public account
 		}
 		account::withdraw(w);
 		checkterm(t);
+		return (0);
 	}
 };
 
