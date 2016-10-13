@@ -11,13 +11,13 @@ class account
 	double interest = 0 ;
 	double bal = 0 ;
 
-	int display();
+	void display();
 	virtual int deposit(double d);
 	virtual int withdraw(double w);
 };
 
 
-int account::display()
+void account::display()
 {
 	//display
 	cout << endl;
@@ -194,11 +194,14 @@ class cd: public account
 int main()
 {
 	savings mysave;
+	mysave.accountNum = "save";
 	mysave.deposit(10000); 
 	checking mycheck;
+	mycheck.accountNum = "check";
 	mycheck.deposit(600);
 	cd mycd(3);
 	mycd.deposit(10000);
+	mycd.accountNum = "cd";
 	mysave.display();
 	mycheck.display();
 	mycd.display();
